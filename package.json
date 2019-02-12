@@ -17,6 +17,7 @@
     "express": "^4.16.4",
     "express-favicon": "^2.0.1",
     "express-validator": "^5.3.1",
+    "heroku": "^7.21.0",
     "mongoose": "^5.4.11"
   },
   "proxy": "http://localhost:3002"

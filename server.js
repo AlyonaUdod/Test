@@ -66,4 +66,4 @@ app.get('/something', (request, res) => {
     }
 )
 
-app.listen(3000, () => console.log('Example app listening on post 3000!'))
+app.listen(PORT, () => console.log('Example app listening on post 3000!'))
