@@ -20,10 +20,10 @@ class App extends Component {
     seachError: '',
   }
 
-  componentDidMount() {
-    this.getAllMessages()
-    this.getMessagesByPage(this.state.page)
-  }
+  // componentDidMount() {
+  //   this.getAllMessages()
+  //   this.getMessagesByPage(this.state.page)
+  // }
 
   handlerChange = (e) => {
     this.setState({
@@ -126,7 +126,7 @@ class App extends Component {
     const { page, messages, error, email, text, messagesLength, messageId, singleMessage, seachError } = this.state
     return (
       <div className='wrapper'>
-        <div className='main-title'> 
+        {/* <div className='main-title'> 
           <Header as='h2' content='Test DB2 Limited'/>
         </div>
         <div className='pagin-wrap'>
@@ -163,7 +163,8 @@ class App extends Component {
         </div>
         <div className='form-wrapper'> 
           <Forms email={email} text={text} handlerChange={this.handlerChange} handleKeyDown={this.handleKeyDown} postMessage={this.postMessage}/>
-        </div>
+        </div> */}
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
       </div>    
     )
   }
