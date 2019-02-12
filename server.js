@@ -14,6 +14,7 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.connect(process.env.MONGODB_URL)
 
+app.use(express.static('./client/build'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -33,5 +34,4 @@ app.use((err, req, res, next) => {
     .json({err: '500'});
 })
 
-app.use(express.static('./client/build'));
 app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
