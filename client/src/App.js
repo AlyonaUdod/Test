@@ -38,13 +38,13 @@ class App extends Component {
   }
 
   getAllMessages = () => {
-    axios.get(`http://localhost:3002/api/messages`)
+    axios.get(`https://test-alyona-udod.herokuapp.com/api/messages`)
       .then(data => this.setState({messagesLength: Math.ceil(data.data.length/10)}))
       .catch(err => this.setState({error: err}))
   }
 
   getMessagesByPage = () => {
-    axios.get(`http://localhost:3002/api/messages/list/${this.state.page}`)
+    axios.get(`https://test-alyona-udod.herokuapp.com/api/messages/list/${this.state.page}`)
       .then(data => this.setState({messages: data.data}))
       .catch(err => this.setState({error: err}))
   }
@@ -126,7 +126,7 @@ class App extends Component {
     const { page, messages, error, email, text, messagesLength, messageId, singleMessage, seachError } = this.state
     return (
       <div className='wrapper'>
-        {/* <div className='main-title'> 
+        <div className='main-title'> 
           <Header as='h2' content='Test DB2 Limited'/>
         </div>
         <div className='pagin-wrap'>
@@ -163,7 +163,7 @@ class App extends Component {
         </div>
         <div className='form-wrapper'> 
           <Forms email={email} text={text} handlerChange={this.handlerChange} handleKeyDown={this.handleKeyDown} postMessage={this.postMessage}/>
-        </div> */}
+        </div>
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
       </div>    
     )
