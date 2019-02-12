@@ -9,6 +9,9 @@ const messagesRoutes = require('./routes/messagesRoutes')
 const PORT = process.env.PORT || 3003;
 const app = express();
 
+const favicon = require('express-favicon');
+app.use(favicon(__dirname + 'client/public/favicon.ico'));
+
 // app.use(express.static(path.join(__dirname)));
 // app.use("/styles", express.static(__dirname));
 // app.use("/images", express.static(__dirname + '/images'));
