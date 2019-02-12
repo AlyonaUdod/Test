@@ -9,8 +9,8 @@ const messagesRoutes = require('./routes/messagesRoutes')
 const PORT = process.env.PORT || 8000;
 const app = express();
 
-const favicon = require('express-favicon');
-app.use(favicon(__dirname + 'client/public/favicon.ico'));
+// const favicon = require('express-favicon');
+// app.use(favicon(__dirname + 'client/public/favicon.ico'));
 
 // app.use(express.static(path.join(__dirname)));
 // app.use("/styles", express.static(__dirname));
@@ -20,7 +20,7 @@ app.use(favicon(__dirname + 'client/public/favicon.ico'));
 
 app.get('/', (req, res) => {
   res.send('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-  res.sendFile(path.join(__dirname + '/client/build/index.html'))
+  // res.sendFile(path.join(__dirname + '/client/build/index.html'))
 })
 
 // mongoose.Promise = global.Promise;
