@@ -16,12 +16,12 @@ const app = express();
 // app.use("/styles", express.static(__dirname));
 // app.use("/images", express.static(__dirname + '/images'));
 // app.use("/scripts", express.static(__dirname + '/scripts'));
-// app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/', (req, res) => {
-  // res.send('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-  res.sendFile(path.join(__dirname + '/client/build/index.html'))
-})
+// app.get('/', (req, res) => {
+//   // res.send('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+//   res.sendFile(path.join(__dirname + '/client/build/index.html'))
+// })
 
 app.get('/something', (request, res) => {
     res.send('somethingg!!')
