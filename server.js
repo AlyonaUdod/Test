@@ -1,10 +1,10 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const cors = require('cors');
+// const bodyParser = require('body-parser');
+// const mongoose = require('mongoose');
+// const cors = require('cors');
 // require('dotenv').config()
-const path = require('path')
-const messagesRoutes = require('./routes/messagesRoutes')
+// const path = require('path')
+// const messagesRoutes = require('./routes/messagesRoutes')
 
 const PORT = process.env.PORT || 8000;
 const app = express();
@@ -18,10 +18,15 @@ const app = express();
 // app.use("/scripts", express.static(__dirname + '/scripts'));
 // app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/', (req, res) => {
-  res.send('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-  // res.sendFile(path.join(__dirname + '/client/build/index.html'))
-})
+app.get('/', (request, res) => {
+    res.send('Conneccteedd ffffffffffffffffffffffffff!!')
+    }
+)
+
+app.get('/something', (request, res) => {
+    res.send('somethingg!!')
+    }
+)
 
 // mongoose.Promise = global.Promise;
 // mongoose.set('useNewUrlParser', true);
@@ -29,8 +34,8 @@ app.get('/', (req, res) => {
 // mongoose.set('useCreateIndex', true);
 // mongoose.connect(process.env.MONGODB_URL)
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: true}));
 
 // app.use(cors());
 // app.options('*', cors());
