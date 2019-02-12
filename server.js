@@ -12,16 +12,16 @@ const app = express();
 // const favicon = require('express-favicon');
 // app.use(favicon(__dirname + 'client/public/favicon.ico'));
 
-// app.use(express.static(path.join(__dirname)));
+app.use(express.static('./client/build'));
 // app.use("/styles", express.static(__dirname));
 // app.use("/images", express.static(__dirname + '/images'));
 // app.use("/scripts", express.static(__dirname + '/scripts'));
-app.use(express.static(path.join(__dirname, 'client/build')));
+// app.use(express.static(path.join(__dirname, 'client/build')));
 
-// app.get('/', (req, res) => {
-//   // res.send('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-//   res.sendFile(path.join(__dirname + '/client/build/index.html'))
-// })
+app.get('/', (req, res) => {
+  res.send('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+  // res.sendFile(path.join(__dirname + 'client/build/index.html'))
+})
 
 app.get('/something', (request, res) => {
     res.send('somethingg!!')
