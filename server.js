@@ -20,17 +20,17 @@ app.get('/', (req, res) => {
   // res.sendFile(path.join(__dirname + '/client/build/index.html'))
 })
 
-mongoose.Promise = global.Promise;
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-mongoose.connect(process.env.MONGODB_URL)
+// mongoose.Promise = global.Promise;
+// mongoose.set('useNewUrlParser', true);
+// mongoose.set('useFindAndModify', false);
+// mongoose.set('useCreateIndex', true);
+// mongoose.connect(process.env.MONGODB_URL)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(cors());
-app.options('*', cors());
+// app.use(cors());
+// app.options('*', cors());
 
 // app.use('/api/messages', messagesRoutes);
 
