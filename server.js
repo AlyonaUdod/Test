@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config()
+const path = require('path')
 const messagesRoutes = require('./routes/messagesRoutes')
 
 const PORT = process.env.PORT || 3002;
@@ -12,14 +13,11 @@ const app = express();
 // app.use("/styles", express.static(__dirname));
 // app.use("/images", express.static(__dirname + '/images'));
 // app.use("/scripts", express.static(__dirname + '/scripts'));
-app.use(express.static('/client/build/index.html'));
+// app.use(express.static('/client/build/index.html'));
 
-// app.get('/', (req, res) => {
-//   Message.find({}, (err,users) => {
-//       if (err) throw err;
-//       res.json(users)
-//   })
-// })
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build/index.html'))
+})
 
 mongoose.Promise = global.Promise;
 mongoose.set('useNewUrlParser', true);
