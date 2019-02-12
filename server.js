@@ -18,7 +18,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(cors());
-app.options('*', cors());
 
 app.use('/api/messages', messagesRoutes);
 
@@ -34,5 +33,5 @@ app.use((err, req, res, next) => {
     .json({err: '500'});
 })
 
-app.use(express.static('./frontend/build'));
+app.use(express.static('./client/build'));
 app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
