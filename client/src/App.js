@@ -164,7 +164,6 @@ class App extends Component {
         <div className='form-wrapper'> 
           <Forms email={email} text={text} handlerChange={this.handlerChange} handleKeyDown={this.handleKeyDown} postMessage={this.postMessage}/>
         </div>
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
       </div>    
     )
   }

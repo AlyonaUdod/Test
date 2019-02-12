@@ -13,10 +13,6 @@ const app = express();
 // app.use(favicon(__dirname + 'client/public/favicon.ico'));
 
 app.use(express.static('./client/build'));
-// app.use("/styles", express.static(__dirname));
-// app.use("/images", express.static(__dirname + '/images'));
-// app.use("/scripts", express.static(__dirname + '/scripts'));
-// app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/', (req, res) => {
   res.send('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
