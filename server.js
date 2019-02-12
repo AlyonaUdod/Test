@@ -7,6 +7,7 @@ const messagesRoutes = require('./routes/messagesRoutes')
 
 const PORT = process.env.PORT || 3002;
 const app = express();
+app.use(express.static('./client/build'));
 
 mongoose.Promise = global.Promise;
 mongoose.set('useNewUrlParser', true);
@@ -14,7 +15,6 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.connect(process.env.MONGODB_URL)
 
-app.use(express.static('./client/build'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
