@@ -3,13 +3,13 @@ const router = express.Router();
 const { body } = require('express-validator/check');
 const ctrlMessages = require('../controllers/controllerMessages');
 
-router.get('/', ctrlMessages.getMessages)
+router.get('/messages', ctrlMessages.getMessages)
 
-router.get('/list/:page', ctrlMessages.getMessagesByPage);
+router.get('/messages/list/:page', ctrlMessages.getMessagesByPage);
 
-router.get('/single/:id', ctrlMessages.getMessageById);
+router.get('/messages/single/:id', ctrlMessages.getMessageById);
 
-router.post('/',  [
+router.post('/messages',  [
     body('email')
         .trim()
         .isEmail(),

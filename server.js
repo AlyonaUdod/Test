@@ -18,7 +18,7 @@ const app = express();
 // app.use(favicon(__dirname + 'client/public/favicon.ico'));
 
 app.use(express.static('./client/build'));
-// app.use('/api/messages', messagesRoutes);
+app.use('/api', messagesRoutes);
 
 // mongoose.Promise = global.Promise;
 // mongoose.set('useNewUrlParser', true);
