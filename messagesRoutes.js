@@ -17,7 +17,7 @@ router.post('/',  [
         .isEmail(),
     body('text')
         .trim()
-        .isLength({ min: 1, max: 99 })
+        .isLength({ min: 1, max: 100 })
     ],
   ctrlMessages.postMessage);
 

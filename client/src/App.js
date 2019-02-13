@@ -61,7 +61,7 @@ class App extends Component {
   sendMessageToDb = (message) => {
     axios.post('/api/messages', message)
       .then(data => this.checkMessagesLength(data.data))
-      .catch(() => this.setState({error: 'Validation faild! Your email isn\'t correct or message length more then 100 symbols, try again.'}))
+      .catch(() => this.setState({error: 'Validation faild! Your email isn\'t correct, message is empty or message length more then 100 symbols, try again.'}))
   } 
 
   checkMessagesLength = async() => {
@@ -100,9 +100,8 @@ class App extends Component {
   getMessageById=()=> {
     if(this.state.messageId){
       axios.get(`/api/messages/single/${this.state.messageId}`)
-      // .then(data => console.log(data))
-      .then(data => this.checkMessageFoundById(data.data))
-      .catch(() => this.setState({seachError: 'Sorry, it\'s not ID, try again.'}))
+        .then(data => this.checkMessageFoundById(data.data))
+        .catch(() => this.setState({seachError: 'Sorry, it\'s not ID, try again.'}))
     }
   }
 
