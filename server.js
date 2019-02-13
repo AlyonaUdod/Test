@@ -20,11 +20,11 @@ const app = express();
 app.use(express.static('./client/build'));
 app.use('/api/messages', messagesRoutes);
 
-// mongoose.Promise = global.Promise;
-// mongoose.set('useNewUrlParser', true);
-// mongoose.set('useFindAndModify', false);
-// mongoose.set('useCreateIndex', true);
-// mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test')
+mongoose.Promise = global.Promise;
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
