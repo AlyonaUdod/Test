@@ -15,7 +15,7 @@ const app = express();
 // const favicon = require('express-favicon');
 // app.use(favicon(__dirname + 'client/public/favicon.ico'));
 
-app.use('/api/messages', messagesRoutes);
+// app.use('/api/messages', messagesRoutes);
 app.use(express.static('./client/build'));
 
 

@@ -11,7 +11,7 @@ router.get('/list/:page', ctrlMessages.getMessagesByPage);
 
 router.get('/single/:id', ctrlMessages.getMessageById);
 
-router.post('/messages',  [
+router.post('/',  [
     body('email')
         .trim()
         .isEmail(),
