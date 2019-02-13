@@ -1,16 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test', function(err) {
-    if (err)
-        return console.error(err);
-});
+// mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test', function(err) {
+//     if (err)
+//         return console.error(err);
+// });
 const cors = require('cors');
 // require('dotenv').config()
 // const path = require('path')
 // const messagesRoutes = require('./routes/messagesRoutes')
 
 const PORT = process.env.PORT || 8000;
+
 const app = express();
 
 // const favicon = require('express-favicon');
