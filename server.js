@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config()
+// require('dotenv').config()
 // const path = require('path')
 const messagesRoutes = require('./routes/messagesRoutes')
 
@@ -14,21 +14,21 @@ const app = express();
 
 app.use(express.static('./client/build'));
 
-app.get('/', (req, res) => {
-  res.send('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-  // res.sendFile(path.join(__dirname + 'client/build/index.html'))
-})
+// app.get('/', (req, res) => {
+//   res.send('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+//   // res.sendFile(path.join(__dirname + 'client/build/index.html'))
+// })
 
-app.get('/something', (request, res) => {
-    res.send('somethingg!!')
-    }
-)
+// app.get('/something', (request, res) => {
+//     res.send('somethingg!!')
+//     }
+// )
 
 mongoose.Promise = global.Promise;
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-mongoose.connect(process.env.MONGODB_URL)
+mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
