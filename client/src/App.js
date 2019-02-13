@@ -110,7 +110,11 @@ class App extends Component {
     if (data) {
       this.setState({
         singleMessage: [data], 
-        seachError: ''})
+        seachError: '',
+        email: '',
+        text: '',
+        error: '',
+      })
     } else {
       this.setState({
         seachError: 'Sorry, no message with this ID, try again.'
