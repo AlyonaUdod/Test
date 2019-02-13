@@ -11,14 +11,6 @@ router.get('/list/:page', ctrlMessages.getMessagesByPage);
 
 router.get('/single/:id', ctrlMessages.getMessageById);
 
-router.post('/',  [
-    body('email')
-        .trim()
-        .isEmail(),
-    body('text')
-        .trim()
-        .isLength({ min: 1, max: 99 })
-    ],
-  ctrlMessages.postMessage);
+router.post('/', ctrlMessages.postMessage);
 
 module.exports = router;
