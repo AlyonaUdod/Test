@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 // require('dotenv').config()
 // const path = require('path')
-const messagesRoutes = require('./routes/messagesRoutes')
+// const messagesRoutes = require('./routes/messagesRoutes')
 
 const PORT = process.env.PORT || 8000;
 const app = express();
@@ -13,7 +13,7 @@ const app = express();
 // app.use(favicon(__dirname + 'client/public/favicon.ico'));
 
 app.use(express.static('./client/build'));
-app.use('/api/messages', messagesRoutes);
+// app.use('/api/messages', messagesRoutes);
 
 // app.get('/', (req, res) => {
 //   res.send('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
@@ -25,11 +25,11 @@ app.use('/api/messages', messagesRoutes);
 //     }
 // )
 
-mongoose.Promise = global.Promise;
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
-mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test')
+// mongoose.Promise = global.Promise;
+// mongoose.set('useNewUrlParser', true);
+// mongoose.set('useFindAndModify', false);
+// mongoose.set('useCreateIndex', true);
+// mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
