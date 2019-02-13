@@ -28,11 +28,11 @@ app.use('/api/messages', messagesRoutes);
 // .then(() => app.listen(PORT, () => (console.log(`server is running on ${PORT}`))));
 
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(cors());
-app.options('*', cors());
+// app.use(cors());
+// app.options('*', cors());
 
 app.use((req, res, next) => {
   res
