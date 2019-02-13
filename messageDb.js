@@ -17,16 +17,16 @@ module.exports.getMessageByIdFromDb = function(id) {
 }
 
 module.exports.postMessageToDb = function(req, res, next){
-    // const errors = validationResult(req);
-    // if (!errors.isEmpty()) {
-    //   const error = new Error('Validation failed!');
-    //   error.statusCode = 422;
-    //   throw error;
-    // }
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      const error = new Error('Validation failed!');
+      error.statusCode = 422;
+      throw error;
+    }
     const { email, text } = req.body;
     const newMessage = new Message({
-      email,
-      text,
+      email: 'mm@mm.com',
+      text: 'Hello cheater',
     });
     return newMessage.save()
   };

@@ -24,8 +24,6 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test')
-// .then(() => app.listen(PORT, () => (console.log(`server is running on ${PORT}`))));
-
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
