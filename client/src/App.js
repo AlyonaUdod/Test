@@ -100,11 +100,24 @@ class App extends Component {
   getMessageById=()=> {
     if(this.state.messageId){
       axios.get(`/api/messages/single/${this.state.messageId}`)
-      .then(data => console.log(data))
-      // .then(data => this.setState({singleMessage: [data.data], seachError: ''}))
-      .catch(() => this.setState({seachError: 'Sorry, can\'t find message with this ID, try again.'}))
+      // .then(data => console.log(data))
+      .then(data => this.checkMessageFoundById(data.data))
+      .catch(() => this.setState({seachError: 'Sorry, it\'s not ID, try again.'}))
     }
   }
+
+  checkMessageFoundById = (data) => {
+    if (data) {
+      this.setState({
+        singleMessage: [data], 
+        seachError: ''})
+    } else {
+      this.setState({
+        seachError: 'Sorry, no message with this ID, try again.'
+      })
+    }
+  }
+
 
   removeSingleMessage=()=>{
     this.setState({
