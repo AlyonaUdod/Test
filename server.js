@@ -1,13 +1,13 @@
 const express = require('express');
-// const bodyParser = require('body-parser');
-// const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 // mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test', function(err) {
 //     if (err)
 //         return console.error(err);
 // });
-// const cors = require('cors');
-// require('dotenv').config()
-// const path = require('path')
+const cors = require('cors');
+require('dotenv').config()
+const path = require('path')
 const messagesRoutes = require('./routes/messagesRoutes')
 
 const PORT = process.env.PORT || 8000;
@@ -17,34 +17,35 @@ const app = express();
 // const favicon = require('express-favicon');
 // app.use(favicon(__dirname + 'client/public/favicon.ico'));
 
+// app.use('/api/messages', messagesRoutes);
 app.use(express.static('./client/build'));
-app.use('/api', messagesRoutes);
-
-// mongoose.Promise = global.Promise;
-// mongoose.set('useNewUrlParser', true);
-// mongoose.set('useFindAndModify', false);
-// mongoose.set('useCreateIndex', true);
-// mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test')
-// .then(() => app.listen(PORT, () => (console.log(`server is running on ${PORT}`))));
 
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended: true}));
+mongoose.Promise = global.Promise;
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test')
+.then(() => app.listen(PORT, () => (console.log(`server is running on ${PORT}`))));
 
-// app.use(cors());
-// app.options('*', cors());
 
-// app.use((req, res, next) => {
-//   res
-//     .status(404)
-//     .json({err: '404'});
-// });
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
-// app.use((err, req, res, next) => {
-//   res
-//     .status(500)
-//     .json({err: '500'});
-// })
+app.use(cors());
+app.options('*', cors());
+
+app.use((req, res, next) => {
+  res
+    .status(404)
+    .json({err: '404'});
+});
+
+app.use((err, req, res, next) => {
+  res
+    .status(500)
+    .json({err: '500'});
+})
 
 app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
 
