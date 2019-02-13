@@ -24,7 +24,9 @@ mongoose.Promise = global.Promise;
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test');
+mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test')
+.then(() => app.listen(PORT, () => (console.log(`server is running on ${PORT}`))));
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -44,7 +46,7 @@ app.use((err, req, res, next) => {
     .json({err: '500'});
 })
 
-app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
+// app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
 
 
 // const express = require('express');
