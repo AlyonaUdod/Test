@@ -23,10 +23,10 @@ module.exports.postMessageToDb = function(req, res, next){
     //   error.statusCode = 422;
     //   throw error;
     // }
-    // const { email, text } = req.body;
+    const { email, text } = req.body;
     const newMessage = new Message({
-      email: 'mm@mm.com',
-      text: 'Hello cheater',
+      email: email,
+      text: text,
     });
     return newMessage.save()
   };
