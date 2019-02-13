@@ -59,7 +59,7 @@ class App extends Component {
   }
 
   sendMessageToDb = (message) => {
-    axios.post('http://localhost:3002/api/messages/', message)
+    axios.post('https://test-alyona-db2.herokuapp.com/api/messages/', message)
       .then(data => this.checkMessagesLength(data.data))
       .catch(() => this.setState({error: 'Validation faild! Your email isn\'t correct or message length more then 100 symbols, try again.'}))
   } 
@@ -108,7 +108,7 @@ class App extends Component {
 
   getMessageById=()=> {
     if(this.state.messageId){
-      axios.get(`http://localhost:3002/api/messages/single/${this.state.messageId}`)
+      axios.get(`https://test-alyona-db2.herokuapp.com/api/messages/single/${this.state.messageId}`)
       .then(data => this.setState({singleMessage: [data.data], seachError: ''}))
       .catch(() => this.setState({seachError: 'Sorry, can\'t find message with this ID, try again.'}))
     }
