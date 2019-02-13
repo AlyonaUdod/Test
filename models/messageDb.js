@@ -1,3 +1,5 @@
+'use strict'
+
 const Message = require('./messageSchema');
 const { validationResult } = require('express-validator/check');
 

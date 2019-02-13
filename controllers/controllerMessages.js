@@ -1,3 +1,5 @@
+'use strict'
+
 const db = require('../models/messageDB.js');
 
 module.exports.getMessages = (req, res) => {
