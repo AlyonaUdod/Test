@@ -4,8 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
-// require('dotenv').config()
-// const path = require('path')
+require('dotenv').config()
 const messagesRoutes = require('./messagesRoutes.js')
 
 const PORT = process.env.PORT || 8000;
@@ -13,8 +12,6 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}))
-// const favicon = require('express-favicon');
-// app.use(favicon(__dirname + 'client/public/favicon.ico'));
 
 app.use('/api/messages', messagesRoutes);
 app.use(express.static('./client/build'));
@@ -23,7 +20,7 @@ mongoose.Promise = global.Promise;
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test');
+mongoose.connect(process.env.MONGODB_URL);
 
 app.use(cors());
 app.options('*', cors());
@@ -41,20 +38,3 @@ app.use((err, req, res, next) => {
 })
 
 app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
-
-
-// const express = require('express');
-// const app = express();
-// const PORT = process.env.PORT || 8000;
-
-// app.get('/', (request, res) => {
-//     res.send('Conneccteedd!!')
-//     }
-// )
-
-// app.get('/something', (request, res) => {
-//     res.send('somethingg!!')
-//     }
-// )
-
-// app.listen(PORT, () => console.log('Example app listening on post 3000!'))
