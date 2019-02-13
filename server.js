@@ -11,22 +11,19 @@ const messagesRoutes = require('./messagesRoutes.js')
 const PORT = process.env.PORT || 8000;
 
 const app = express();
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}))
 // const favicon = require('express-favicon');
 // app.use(favicon(__dirname + 'client/public/favicon.ico'));
 
 app.use('/api/messages', messagesRoutes);
 app.use(express.static('./client/build'));
 
-
 mongoose.Promise = global.Promise;
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test')
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test');
 
 app.use(cors());
 app.options('*', cors());
