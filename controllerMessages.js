@@ -1,6 +1,6 @@
 'use strict'
 
-const db = require('../models/messageDB.js');
+const db = require('./messageDb');
 
 module.exports.getMessages = (req, res) => {
     db

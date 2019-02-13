@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const { body } = require('express-validator/check');
-const ctrlMessages = require('../controllers/controllerMessages');
+const ctrlMessages = require('./controllerMessages');
 
 router.get('/', ctrlMessages.getMessages)
 
