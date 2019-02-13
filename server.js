@@ -8,7 +8,7 @@ const express = require('express');
 // const cors = require('cors');
 // require('dotenv').config()
 // const path = require('path')
-// const messagesRoutes = require('./routes/messagesRoutes')
+const messagesRoutes = require('./routes/messagesRoutes')
 
 const PORT = process.env.PORT || 8000;
 
