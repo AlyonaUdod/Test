@@ -121,12 +121,12 @@ class App extends Component {
     }
   }
 
-
   removeSingleMessage=()=>{
     this.setState({
       singleMessage: null,
       messageId: '',
       seachError: '',
+      error: '',
     })
   }
 
