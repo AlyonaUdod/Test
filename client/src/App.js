@@ -59,6 +59,7 @@ class App extends Component {
   }
 
   sendMessageToDb = (message) => {
+    console.log(message)
     axios.post('/api/messages', message)
       .then(data => this.checkMessagesLength(data.data))
       .catch(() => this.setState({error: 'Validation faild! Your email isn\'t correct or message length more then 100 symbols, try again.'}))
