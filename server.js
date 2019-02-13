@@ -20,6 +20,10 @@ app.use('/api/messages', messagesRoutes);
 // mongoose.set('useFindAndModify', false);
 // mongoose.set('useCreateIndex', true);
 // mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test')
+mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test', function(err) {
+    if (err)
+        return console.error(err);
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
