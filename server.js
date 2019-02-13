@@ -6,9 +6,9 @@ const mongoose = require('mongoose');
 //         return console.error(err);
 // });
 const cors = require('cors');
-require('dotenv').config()
-const path = require('path')
-const messagesRoutes = require('./routes/messagesRoutes')
+// require('dotenv').config()
+// const path = require('path')
+// const messagesRoutes = require('./routes/messagesRoutes')
 
 const PORT = process.env.PORT || 8000;
 
@@ -26,7 +26,7 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.connect('mongodb://admin:qwertyui90@ds157064.mlab.com:57064/sandbox_test')
-.then(() => app.listen(PORT, () => (console.log(`server is running on ${PORT}`))));
+// .then(() => app.listen(PORT, () => (console.log(`server is running on ${PORT}`))));
 
 
 app.use(bodyParser.json());
