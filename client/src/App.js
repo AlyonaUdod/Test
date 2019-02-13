@@ -20,10 +20,10 @@ class App extends Component {
     seachError: '',
   }
 
-  // componentDidMount() {
-  //   this.getAllMessages()
-  //   this.getMessagesByPage(this.state.page)
-  // }
+  componentDidMount() {
+    this.getAllMessages()
+    this.getMessagesByPage(this.state.page)
+  }
 
   handlerChange = (e) => {
     this.setState({
@@ -38,13 +38,13 @@ class App extends Component {
   }
 
   getAllMessages = () => {
-    axios.get(`https://test-alyona-udod.herokuapp.com/api/messages`)
+    axios.get(`/api/messages`)
       .then(data => this.setState({messagesLength: Math.ceil(data.data.length/10)}))
       .catch(err => this.setState({error: err}))
   }
 
   getMessagesByPage = () => {
-    axios.get(`https://test-alyona-udod.herokuapp.com/api/messages/list/${this.state.page}`)
+    axios.get(`/api/messages/list/${this.state.page}`)
       .then(data => this.setState({messages: data.data}))
       .catch(err => this.setState({error: err}))
   }
@@ -59,7 +59,7 @@ class App extends Component {
   }
 
   sendMessageToDb = (message) => {
-    axios.post('https://test-alyona-db2.herokuapp.com/api/messages/', message)
+    axios.post('/api/messages/', message)
       .then(data => this.checkMessagesLength(data.data))
       .catch(() => this.setState({error: 'Validation faild! Your email isn\'t correct or message length more then 100 symbols, try again.'}))
   } 
@@ -108,7 +108,7 @@ class App extends Component {
 
   getMessageById=()=> {
     if(this.state.messageId){
-      axios.get(`https://test-alyona-db2.herokuapp.com/api/messages/single/${this.state.messageId}`)
+      axios.get(`/api/messages/single/${this.state.messageId}`)
       .then(data => this.setState({singleMessage: [data.data], seachError: ''}))
       .catch(() => this.setState({seachError: 'Sorry, can\'t find message with this ID, try again.'}))
     }
