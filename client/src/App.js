@@ -59,30 +59,28 @@ class App extends Component {
   }
 
   sendMessageToDb = (message) => {
-    console.log(message)
     axios.post('/api/messages', message)
       .then(data => this.checkMessagesLength(data.data))
       .catch(() => this.setState({error: 'Validation faild! Your email isn\'t correct or message length more then 100 symbols, try again.'}))
   } 
 
   checkMessagesLength = async(message) => {
-    if (this.state.messages.length < 10) {
-      this.setState(prev =>({
-        messages: [...prev.messages, message],
-        email: '',
-        text: '',
-        error: '',
-      }))
-    } else{
+    // if (this.state.messages.length < 10) {
+    //   this.setState(prev =>({
+    //     messages: [...prev.messages, message],
+    //     email: '',
+    //     text: '',
+    //     error: '',
+    //   }))
+    // } else{
       await this.setState(prev =>({
         email: '',
         text: '',
         error: '',
-        page: prev.page === prev.messagesLength ? prev.page+1 : prev.page === 1 ? Math.floor(prev.messagesLength+1) : prev.messagesLength,
-        messagesLength: prev.messages.length === 10 ? Math.floor(prev.messagesLength+1) : prev.messagesLength,
+        page: prev.messages.length === 10 && prev.page === prev.messagesLength ? prev.page+1 : prev.messagesLength,
+        messagesLength: prev.messages.length === 10 && prev.messagesLength === prev.page ? Math.floor(prev.messagesLength+1) : prev.messagesLength,
       }))
       this.getMessagesByPage()
-    }
   }
 
   showNewPage = async(e) => {
