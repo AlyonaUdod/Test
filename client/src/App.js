@@ -64,15 +64,7 @@ class App extends Component {
       .catch(() => this.setState({error: 'Validation faild! Your email isn\'t correct or message length more then 100 symbols, try again.'}))
   } 
 
-  checkMessagesLength = async(message) => {
-    // if (this.state.messages.length < 10) {
-    //   this.setState(prev =>({
-    //     messages: [...prev.messages, message],
-    //     email: '',
-    //     text: '',
-    //     error: '',
-    //   }))
-    // } else{
+  checkMessagesLength = async() => {
       await this.setState(prev =>({
         email: '',
         text: '',
@@ -108,7 +100,8 @@ class App extends Component {
   getMessageById=()=> {
     if(this.state.messageId){
       axios.get(`/api/messages/single/${this.state.messageId}`)
-      .then(data => this.setState({singleMessage: [data.data], seachError: ''}))
+      .then(data => console.log(data))
+      // .then(data => this.setState({singleMessage: [data.data], seachError: ''}))
       .catch(() => this.setState({seachError: 'Sorry, can\'t find message with this ID, try again.'}))
     }
   }
